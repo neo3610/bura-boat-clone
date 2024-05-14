@@ -1,0 +1,32 @@
+.header {
+  .title {
+    font-size: 58px;
+    color: white;
+    max-width: 70%;
+    font-weight: 700;
+  }
+
+  .titleDescription {
+    font-size: 36px;
+    font-weight: 400;
+    color: white;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .header {
+    .title {
+      font-size: 30px;
+      color: white;
+      max-width: 100%;
+      font-weight: 700;
+    }
+
+    .titleDescription {
+      font-size: 22px;
+      font-weight: 400;
+      color: white;
+    }
+
+  }
+}

@@ -1,0 +1,36 @@
+.mobileContent {
+  .datePicker {
+    width: 100%;
+    height: 56px;
+    :global {
+      input {
+        font-size: 16px;
+        font-weight: 400;
+        color: #2A2F3B;
+      }
+    }
+  }
+  .peopleCount {
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    gap: 11px;
+    color: #1E3E39;
+    align-items: center;
+    justify-content: center;
+    :global {
+      .ant-input-number-handler-wrap {
+        display: none;
+      }
+      .ant-input-number {
+        width: 60px;
+      }
+      .ant-input-number-input {
+        opacity: 50%;
+        font-size: 18px;
+        font-weight: 400;
+        color: #1E3E39;
+      }
+    }
+  }
+}

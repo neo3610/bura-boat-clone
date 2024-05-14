@@ -1,0 +1,13 @@
+.pastTrips {
+  padding: 0 100px;
+  .title {
+    font-size: 38px;
+    font-weight: 700;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .pastTrips {
+    padding: 0 30px;
+  }
+}

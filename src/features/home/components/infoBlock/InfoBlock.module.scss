@@ -1,0 +1,12 @@
+.infoBlock {
+  min-height: 300px;
+  padding: 66px 100px;
+  background: #F4F6F9;
+  display: flex;
+}
+
+@media only screen and (max-width: 1024px){
+  .infoBlock {
+    padding: 66px 30px;
+  }
+}
