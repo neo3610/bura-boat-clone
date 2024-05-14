@@ -1,0 +1,32 @@
+.navigateText {
+  color: #F8FFFE;
+  font-size: 18px;
+  font-weight: 400;
+}
+.headerLogoName {
+  color: white;
+  span {
+    color: #5fc6b6
+  }
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.headerMobNavBar {
+  display: none;
+  position: relative;
+  .menuUnfold {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .headerNavBar {
+    display: none;
+  }
+  .headerMobNavBar {
+    display: flex;
+  }
+}

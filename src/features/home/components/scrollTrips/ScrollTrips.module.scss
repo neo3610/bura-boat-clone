@@ -1,0 +1,32 @@
+.scrollTrips {
+  padding: 0 40px;
+  :global {
+    .slick-track {
+      display: flex;
+      gap: 80px;
+    }
+    .navigateArrowBlock  {
+      padding-left: 55px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1190px){
+  .scrollTrips {
+    :global {
+      .slick-track {
+        gap: 25px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .scrollTrips {
+    :global {
+      .navigateArrowBlock  {
+        padding-left: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.customInputNumber {
+  :global {
+    .ant-input-number-handler-wrap {
+      display: none;
+    }
+    .ant-input-number {
+      width: 60px;
+    }
+    .ant-input-number-input {
+      opacity: 50%;
+      font-size: 18px;
+      font-weight: 400;
+      color: #1E3E39;
+    }
+  }
+}

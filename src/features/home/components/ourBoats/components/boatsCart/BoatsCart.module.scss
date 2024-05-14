@@ -1,0 +1,81 @@
+.boatsCart {
+  position: relative;
+  height: 300px;
+  border-radius: 30px;
+  padding: 28px 24px;
+  img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+  }
+  .name {
+    font-size: 32px;
+    font-weight: 600;
+    color: #F8FFFE;
+  }
+  .description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #F8FFFE;
+  }
+  .peoplesCount {
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 24px;
+    color: #F8FFFE;
+    font-weight: 600;
+    background: #60C8B7;
+  }
+  .showArrow {
+    cursor: pointer;
+    position: absolute;
+    font-size: 13px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    right: 17px;
+    top: 17px;
+    background: white;
+  }
+  .detailedInformation {
+    position: absolute;
+    padding: 30px;
+    background: #60C8B7;
+    border-radius: 30px;
+    width: 100%;
+    z-index: -2;
+    transition-duration: 0.5s;
+  }
+  .show {
+    right: -85%;
+    bottom: 0;
+    top: 0;
+  }
+  .hide {
+    right: 0;
+    bottom: 0;
+    top: 0;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .boatsCart {
+    .show {
+      top: -85%;
+      right: 0;
+      bottom: -85%;
+    }
+    .hide {
+      right: 0;
+      bottom: 0;
+      top: 0;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.customSelect {
+  :global {
+    .ant-select {
+      width: 100%;
+      .ant-select-selector {
+        background: none;
+        border: none;
+        padding-left: 0;
+      }
+      .ant-select-selection-placeholder {
+        color: #1E3E39;
+      }
+    }
+  }
+}
+
+.customSelectLabel {
+  color: #636363;
+  font-size: 14px;
+  font-weight: 400;
+}

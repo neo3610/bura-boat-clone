@@ -1,0 +1,33 @@
+.customCarousel {
+  :global {
+    .slick-track {
+      display: flex;
+      gap: 20px;
+    }
+    .slick-slide {
+      z-index: -1;
+    }
+    .slick-current {
+      z-index: 100;
+    }
+  }
+}
+
+.navigateArrow {
+  svg {
+    cursor: pointer;
+  }
+}
+
+
+
+@media only screen and (max-width: 1024px){
+  .customCarousel {
+    justify-content: center;
+    :global {
+      .slick-track {
+        gap: 0;
+      }
+    }
+  }
+}
