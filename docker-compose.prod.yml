@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: bura_boat
+    image: bura_boat
+    build:
+      context: .
+      dockerfile: Dockerfile.production
+    ports:
+      - "3040:3040"
