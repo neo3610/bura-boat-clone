@@ -3,6 +3,12 @@
   font-size: 18px;
   font-weight: 400;
 }
+
+.profileIcon {
+  svg {
+    color: white;
+  }
+}
 .headerLogoName {
   color: white;
   span {
@@ -22,7 +28,29 @@
   }
 }
 
+
+.drawer {
+  padding: 20px;
+  .drawerText {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1E3E39;
+  }
+  .bookBtn {
+    font-size: 36px;
+    font-weight: 700;
+    color: #EF8063;
+    bottom: 30px;
+    position: absolute;
+  }
+}
+
 @media only screen and (max-width: 1024px){
+  .profileIcon {
+    svg {
+      color: #1E3E39;
+    }
+  }
   .headerNavBar {
     display: none;
   }

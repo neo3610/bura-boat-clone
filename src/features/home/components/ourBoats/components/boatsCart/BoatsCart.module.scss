@@ -12,16 +12,7 @@
     right: 0;
     height: 100%;
   }
-  .name {
-    font-size: 32px;
-    font-weight: 600;
-    color: #F8FFFE;
-  }
-  .description {
-    font-size: 18px;
-    font-weight: 400;
-    color: #F8FFFE;
-  }
+
   .peoplesCount {
     padding: 10px;
     border-radius: 12px;
@@ -44,38 +35,53 @@
     top: 17px;
     background: white;
   }
-  .detailedInformation {
-    position: absolute;
-    padding: 30px;
-    background: #60C8B7;
-    border-radius: 30px;
-    width: 100%;
-    z-index: -2;
-    transition-duration: 0.5s;
-  }
-  .show {
-    right: -85%;
-    bottom: 0;
-    top: 0;
-  }
-  .hide {
-    right: 0;
-    bottom: 0;
-    top: 0;
-  }
+}
+.name {
+  font-size: 32px;
+  font-weight: 600;
+  color: #F8FFFE;
+}
+.description {
+  font-size: 18px;
+  font-weight: 400;
+  color: #F8FFFE;
+}
+
+.detailedInformation {
+  position: absolute;
+  padding: 30px;
+  background: #60C8B7;
+  border-radius: 50px;
+  width: 100%;
+  z-index: -2;
+  transition-duration: 0.5s;
+}
+.show {
+  right: -85%;
+  bottom: 0;
+  top: 0;
+}
+.hide {
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
 
 @media only screen and (max-width: 1024px){
-  .boatsCart {
-    .show {
-      top: -85%;
-      right: 0;
-      bottom: -85%;
-    }
-    .hide {
-      right: 0;
-      bottom: 0;
-      top: 0;
-    }
+  .detailedInformation {
+    position: relative;
+    border-radius: 0 0 50px 50px;
+    padding: 34px 26px 34px 26px;
+  }
+  .hide {
+    display: none;
+  }
+  .show {
+    right: 0;
+    bottom: 30px;
+    top: -30px;
+  }
+  .showArrowIcon {
+    transform: rotate(90deg);
   }
 }

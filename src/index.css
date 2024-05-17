@@ -19,6 +19,20 @@ body {
 
 }
 
+
+a,
+a:focus,
+a:active {
+    outline: none;
+    color: white;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
 .ant-form-item {
     margin: 0;
 }

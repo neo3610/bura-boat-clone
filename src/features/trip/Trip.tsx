@@ -2,13 +2,16 @@ import React from "react";
 import { Col, Image, Row } from "antd";
 import styles from "./Trip.module.scss";
 import Photo from "@assets/img.png";
+import { useIsNarrowScreen } from "@utils/useIsNarrowScreen";
 export const Trip: React.FC = () => {
+  const { narrowScreen } = useIsNarrowScreen(1024);
+
   return (
     <Row gutter={[0, 50]} className={styles.trip}>
       <Col span={24}>
-        <Row justify={"space-between"}>
-          <Col>
-            <Row gutter={[0, 13]}>
+        <Row gutter={[0, 25]} justify={"space-between"}>
+          <Col span={24}>
+            <Row justify="center" gutter={[0, 13]}>
               <Col span={24} className={styles.title}>
                 Name of trip
               </Col>
@@ -17,7 +20,7 @@ export const Trip: React.FC = () => {
               </Col>
             </Row>
           </Col>
-          <Col className={styles.description} span={12}>
+          <Col className={styles.description} span={narrowScreen ? 24 : 12}>
             Lorem ispum dolor sit amet Lorem ispum dolor sit amet Lorem ispum
             dolor sit amet Lorem ispum dolor sit amet Lorem ispum dolor sit amet
             Lorem ispum dolor sit amet Lorem ispum dolor sit amet Lorem ispum
@@ -31,16 +34,16 @@ export const Trip: React.FC = () => {
       </Col>
       <Col span={24}>
         <Row justify="space-between" gutter={[14, 14]}>
-          <Col span={12}>
+          <Col span={narrowScreen ? 24 : 12}>
             <Image src={Photo} />
           </Col>
-          <Col span={12}>
+          <Col span={narrowScreen ? 24 : 12}>
             <Image src={Photo} />
           </Col>
-          <Col span={12}>
+          <Col span={narrowScreen ? 24 : 12}>
             <Image src={Photo} />
           </Col>
-          <Col span={12}>
+          <Col span={narrowScreen ? 24 : 12}>
             <Image src={Photo} />
           </Col>
         </Row>

@@ -15,6 +15,7 @@ import { Routes } from "@enums/routes.ts";
 import { useDispatch } from "react-redux";
 import { changeBookingShowModal } from "@store/slices/modals";
 import { useIsNarrowScreen } from "@utils/useIsNarrowScreen";
+import { BookingModal } from "@features/modals";
 
 export const MainLayout: React.FC = () => {
   const dispatch = useDispatch();
@@ -91,6 +92,7 @@ export const MainLayout: React.FC = () => {
           </Col>
         </Row>
       </Col>
+      <BookingModal />
     </Row>
   );
 };

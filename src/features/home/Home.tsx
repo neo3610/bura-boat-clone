@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Col, Row } from "antd";
 import { InfoBlock, OurBoats, PastTrips, TripsToday } from "./components";
-import { BookingModal } from "@features/modals";
 import { useGetMainSequenceQuery } from "@store/buraboatApi.ts";
 export const Home: React.FC = () => {
   const { data } = useGetMainSequenceQuery();
@@ -20,7 +19,6 @@ export const Home: React.FC = () => {
           {components[+item.num - 1]}
         </Col>
       ))}
-      <BookingModal />
     </Row>
   );
 };

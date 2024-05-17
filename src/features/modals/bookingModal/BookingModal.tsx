@@ -10,28 +10,18 @@ import {
   ContentBlock,
   MobileContent,
 } from "@features/modals/bookingModal/components";
-import BoatCartIcon from "@assets/BoatCartIcon.png";
 import { CustomCarousel } from "@features/ui-kit";
 import { useIsNarrowScreen } from "@utils/useIsNarrowScreen";
 import { CarouselRef } from "antd/es/carousel";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { useGetMainBoatsListQuery } from "@store/buraboatApi.ts";
 
 export const BookingModal: React.FC = () => {
   const dispatch = useDispatch();
   const bookingShowModal = useSelector(geoBookingShowModalSelector);
   const { narrowScreen: mobile } = useIsNarrowScreen(1024);
   const carouselRef = useRef<CarouselRef>(null);
-
-  const data = [
-    { src: BoatCartIcon, title: "Night fishing", id: 1 },
-    { src: BoatCartIcon, title: "Night fishing", id: 2 },
-    { src: BoatCartIcon, title: "Night fishing", id: 3 },
-    { src: BoatCartIcon, title: "Night fishing", id: 4 },
-    { src: BoatCartIcon, title: "Night fishing", id: 5 },
-    { src: BoatCartIcon, title: "Night fishing", id: 6 },
-    { src: BoatCartIcon, title: "Night fishing", id: 7 },
-    { src: BoatCartIcon, title: "Night fishing", id: 8 },
-  ];
+  const { data: boatsData = [] } = useGetMainBoatsListQuery();
 
   const onPrevClick = () => {
     carouselRef.current?.prev();
@@ -67,9 +57,9 @@ export const BookingModal: React.FC = () => {
                 customRef={carouselRef}
                 compressed
                 navigateArrow={false}
-                data={data.map((item) => (
+                data={boatsData.map((item) => (
                   <Col key={item.id}>
-                    <BookingModalCart src={item.src} title={item.title} />
+                    <BookingModalCart src={item.image} title={item.name} />
                   </Col>
                 ))}
               />
@@ -84,9 +74,9 @@ export const BookingModal: React.FC = () => {
         </Col>
         <Col className={styles.cartsBlock} span={24}>
           <Row gutter={[20, 18]}>
-            {data.map((item) => (
+            {boatsData.map((item) => (
               <Col key={item.id} span={6}>
-                <BookingModalCart src={item.src} title={item.title} />
+                <BookingModalCart src={item.image} title={item.name} />
               </Col>
             ))}
           </Row>

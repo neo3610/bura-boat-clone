@@ -5,9 +5,23 @@ import { Routes } from "@enums/routes.ts";
 import styles from "./HeaderNavBar.module.scss";
 import { ProfileIcon } from "@assets/ProfileIcon.tsx";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
+import { CustomDrawer } from "@features/ui-kit/customDrawer";
+import { changeBookingShowModal } from "@store/slices/modals";
+import { useDispatch } from "react-redux";
 
 export const HeaderNavBar: React.FC = () => {
   const [visibleContent, setVisibleContent] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const onBookNow = () => {
+    setVisibleContent(false);
+    dispatch(changeBookingShowModal(true));
+  };
+
+  const onClose = () => {
+    setVisibleContent(false);
+  };
   return (
     <>
       <Row
@@ -46,7 +60,7 @@ export const HeaderNavBar: React.FC = () => {
         <Col>
           <Link to="#">
             <Row gutter={10}>
-              <Col>
+              <Col className={styles.profileIcon}>
                 <ProfileIcon />
               </Col>
               <Col className={styles.navigateText}>Login</Col>
@@ -74,6 +88,46 @@ export const HeaderNavBar: React.FC = () => {
             className={styles.menuUnfold}
           />
         </Col>
+        <CustomDrawer closeIcon={false} open={visibleContent} onClose={onClose}>
+          <Row className={styles.drawer} gutter={[0, 21]}>
+            <Col span={24}>
+              <Link to="#">
+                <Row align="middle" gutter={10}>
+                  <Col className={styles.profileIcon}>
+                    <ProfileIcon />
+                  </Col>
+                  <Col className={styles.drawerText}>Login</Col>
+                </Row>
+              </Link>
+            </Col>
+            <Col span={24}>
+              <Row gutter={[0, 8]}>
+                <Col span={24}>
+                  <Link className={styles.drawerText} to={Routes.Landing}>
+                    Boat Tour
+                  </Link>
+                </Col>
+                <Col span={24}>
+                  <Link className={styles.drawerText} to={Routes.Trip}>
+                    Trip
+                  </Link>
+                </Col>
+                <Col span={24}>
+                  <Link className={styles.drawerText} to="#">
+                    About us
+                  </Link>
+                </Col>
+              </Row>
+            </Col>
+            <Col
+              onClick={() => onBookNow()}
+              span={7}
+              className={styles.bookBtn}
+            >
+              BOOK
+            </Col>
+          </Row>
+        </CustomDrawer>
       </Row>
     </>
   );
