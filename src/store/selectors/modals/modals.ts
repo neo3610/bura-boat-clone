@@ -7,9 +7,23 @@ type WithModalsState = {
 
 export const modalsStateSelector = (state: WithModalsState) => state.modals;
 
-export const geoBookingShowModalSelector = createSelector(
+export const getBookingShowModalSelector = createSelector(
   modalsStateSelector,
   (resultFuncArgs) => {
     return resultFuncArgs.bookingShowModal;
+  },
+);
+
+export const getBookingConfirmModalSelector = createSelector(
+  modalsStateSelector,
+  (resultFuncArgs) => {
+    return resultFuncArgs.bookingShowConfirmModal;
+  },
+);
+
+export const getActiveExcursionIdSelector = createSelector(
+  modalsStateSelector,
+  (resultFuncArgs) => {
+    return resultFuncArgs.activeExcursionId;
   },
 );

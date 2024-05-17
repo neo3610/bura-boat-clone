@@ -25,11 +25,24 @@
 
 .bookingModalCartItem:hover:after {
   content: '';
-  border-radius: 6px;
+  border-radius: 18px;
   background: #60C8B7CC;
   opacity: 60%;
   position: absolute;
   z-index: 20;
   width: 100%;
   height: 100%;
+}
+
+.active {
+  .bookingModalCartItem:after {
+    content: '';
+    border-radius: 18px;
+    background: #60C8B7CC;
+    opacity: 60%;
+    position: absolute;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+  }
 }

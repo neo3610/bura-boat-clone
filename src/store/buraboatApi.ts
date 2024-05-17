@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const buraBoatApi = createApi({
   reducerPath: "buraBoatApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://127.0.0.1:8000/api/v1" }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_MAIN_BASE_URL }),
   endpoints: (builder) => ({
     getMainSequence: builder.query<Array<GetMainSequenceResponse>, void>({
       query: () => `/main_sequence/`,
@@ -29,8 +29,47 @@ export const buraBoatApi = createApi({
     getMainPastTrips: builder.query<Array<GetMainPastTripsResponse>, void>({
       query: () => `/main_past_trips/`,
     }),
+
+    getExcursions: builder.query<Array<GetExcursionsResponse>, void>({
+      query: () => `/excursions/`,
+    }),
+
+    getCalculationForId: builder.query<
+      GetCalculationForIdResponse,
+      GetCalculationForIdArg
+    >({
+      query: ({ id }) => `/calculation/${id}/`,
+    }),
   }),
 });
+
+export type GetCalculationForIdArg = {
+  id: number;
+};
+
+export type GetCalculationForIdResponse = {
+  id: number;
+  start_time: string;
+  end_time: string;
+  date: string;
+  excursions: number;
+  inputs: Array<number>;
+  checkboxes: Array<number>;
+};
+
+export type GetExcursionsResponse = {
+  id: number;
+  name: string;
+  time: string;
+  description: string;
+  image_for_tab: string;
+  number: number;
+  prive_hour: number;
+  prive: number;
+  prive_hourr: boolean;
+  privee: boolean;
+  settings: number;
+};
 
 export type GetMainTipsTodayResponse = {
   id: number;
@@ -116,4 +155,6 @@ export const {
   useGetMainTextBlockQuery,
   useGetMainPastTripsQuery,
   useGetMainTipsTodayQuery,
+  useGetExcursionsQuery,
+  useGetCalculationForIdQuery,
 } = buraBoatApi;

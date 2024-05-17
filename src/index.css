@@ -16,7 +16,6 @@
 body {
     margin: 0;
     background: #F8FFFE;
-
 }
 
 
@@ -35,4 +34,8 @@ a:hover {
 
 .ant-form-item {
     margin: 0;
+}
+
+body .ant-input-lg {
+    height: 55px;
 }
