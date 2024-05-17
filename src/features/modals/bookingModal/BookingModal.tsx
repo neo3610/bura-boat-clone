@@ -1,30 +1,16 @@
-import React, { useRef } from "react";
-import { Col, Modal, Row } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getActiveExcursionIdSelector,
-  getBookingShowModalSelector,
-} from "@store/selectors";
-import {
-  changeBookingShowConfirmModal,
-  changeBookingShowModal,
-} from "@store/slices/modals";
-import { DefaultButton } from "@features/ui-kit/defaultButton";
-import styles from "./BookingModal.module.scss";
-import {
-  BookingModalCart,
-  ContentBlock,
-  MobileContent,
-} from "@features/modals/bookingModal/components";
-import { CustomCarousel } from "@features/ui-kit";
-import { useIsNarrowScreen } from "@utils/useIsNarrowScreen";
-import { CarouselRef } from "antd/es/carousel";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import {
-  useGetCalculationForIdQuery,
-  useGetExcursionsQuery,
-} from "@store/buraboatApi.ts";
-import { skipToken } from "@reduxjs/toolkit/query";
+import React, { useRef } from 'react';
+import { Col, Modal, Row } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { getActiveExcursionIdSelector, getBookingShowModalSelector } from '@store/selectors';
+import { changeBookingShowConfirmModal, changeBookingShowModal } from '@store/slices/modals';
+import { DefaultButton } from '@features/ui-kit/defaultButton';
+import styles from './BookingModal.module.scss';
+import { BookingModalCart, ContentBlock, MobileContent } from '@features/modals/bookingModal/components';
+import { CustomCarousel } from '@features/ui-kit';
+import { useIsNarrowScreen } from '@utils/useIsNarrowScreen';
+import { CarouselRef } from 'antd/es/carousel';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { useGetExcursionsQuery } from '@store/buraboatApi.ts';
 
 export const BookingModal: React.FC = () => {
   const dispatch = useDispatch();
@@ -54,21 +40,12 @@ export const BookingModal: React.FC = () => {
   };
 
   return (
-    <Modal
-      width={"100%"}
-      footer={false}
-      onCancel={onChanel}
-      open={bookingShowModal}
-      className={styles.bookingModal}
-    >
+    <Modal width={'100%'} footer={false} onCancel={onChanel} open={bookingShowModal} className={styles.bookingModal}>
       <Row gutter={[0, 70]}>
         <Col span={24} className={styles.cartsMobile}>
           <Row align="middle" gutter={5}>
             <Col span={2}>
-              <LeftOutlined
-                onClick={onPrevClick}
-                className={styles.carouselNavigateArrow}
-              />
+              <LeftOutlined onClick={onPrevClick} className={styles.carouselNavigateArrow} />
             </Col>
             <Col span={20}>
               <CustomCarousel
@@ -77,20 +54,13 @@ export const BookingModal: React.FC = () => {
                 navigateArrow={false}
                 data={excursionsData.map((item) => (
                   <Col key={item.id}>
-                    <BookingModalCart
-                      id={item.id}
-                      src={item.image_for_tab}
-                      title={item.name}
-                    />
+                    <BookingModalCart id={item.id} src={item.image_for_tab} title={item.name} />
                   </Col>
                 ))}
               />
             </Col>
             <Col span={2}>
-              <RightOutlined
-                onClick={onNextClick}
-                className={styles.carouselNavigateArrow}
-              />
+              <RightOutlined onClick={onNextClick} className={styles.carouselNavigateArrow} />
             </Col>
           </Row>
         </Col>
@@ -98,11 +68,7 @@ export const BookingModal: React.FC = () => {
           <Row gutter={[20, 18]}>
             {excursionsData.map((item) => (
               <Col key={item.id} span={6}>
-                <BookingModalCart
-                  id={item.id}
-                  src={item.image_for_tab}
-                  title={item.name}
-                />
+                <BookingModalCart id={item.id} src={item.image_for_tab} title={item.name} />
               </Col>
             ))}
           </Row>
@@ -122,11 +88,7 @@ export const BookingModal: React.FC = () => {
             {/*  </DefaultButton>*/}
             {/*</Col>*/}
             <Col span={24}>
-              <DefaultButton
-                disabled={!activeExcursionId}
-                onClick={onBooking}
-                className={styles.submitBtn}
-              >
+              <DefaultButton disabled={!activeExcursionId} onClick={onBooking} className={styles.submitBtn}>
                 Book now
               </DefaultButton>
             </Col>
