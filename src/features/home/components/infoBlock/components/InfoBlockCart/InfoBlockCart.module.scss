@@ -1,0 +1,36 @@
+.infoBlockCart {
+  .infoBlock {
+    height: 300px;
+    padding: 0 100px;
+    background: #F4F6F9;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .icon {
+    background: #DCF3F1;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    max-width: 78px;
+  }
+
+  .description {
+    color: #848484;
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .infoBlockCart {
+    .infoBlock {
+      padding: 0 30px;
+    }
+  }
+}

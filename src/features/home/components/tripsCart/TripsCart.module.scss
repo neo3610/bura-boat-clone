@@ -1,0 +1,89 @@
+.tripsCart {
+  .tripsCartIcon {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 30px;
+    img {
+      display: block;
+      width: 100%;
+      max-height: 220px;
+    }
+    .searchIcon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #60C8B7B2;
+      opacity: 0;
+      svg {
+        width: 57px;
+        height: 57px;
+      }
+    }
+    &:hover{
+      .searchIcon {
+        opacity: 1;
+      }
+    }
+  }
+  .duration {
+    color: #60C8B7;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .title {
+    font-size: 24px;
+    color: #1E3E39;
+    font-weight: 700;
+  }
+  .description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #848484;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #848484;
+  }
+  .price {
+    font-size: 24px;
+    color: #1E3E39;
+    font-weight: 500;
+  }
+  .timeData {
+    background: #F3F1FD;
+    padding: 10px;
+    border-radius: 42px;
+    display: flex;
+    align-items: center;
+    span {
+      color: #5E5E5E;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  :global {
+    .ant-rate-star {
+      color: #EF8063;
+    }
+  }
+  .customRate {
+    :global {
+      .ant-rate-star {
+        margin-inline-end: 4px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1485px){
+  .customRate {
+    svg {
+      width: 16px;
+    }
+  }
+}

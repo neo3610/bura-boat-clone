@@ -1,0 +1,37 @@
+.trip {
+  padding: 0 100px;
+  .title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #1E3E39;
+  }
+  .date {
+    font-size: 18px;
+    font-weight: 400;
+    color: #848484;
+  }
+  .description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #848484;
+  }
+  :global {
+    .ant-image {
+      width: 100%;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1024px){
+  .trip {
+    padding: 0 33px;
+    .title {
+        text-align: center;
+    }
+    .date {
+        text-align: center;
+        font-size: 22px;
+    }
+  }
+}

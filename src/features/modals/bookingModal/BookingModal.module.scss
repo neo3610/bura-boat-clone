@@ -1,0 +1,75 @@
+.bookingModal {
+  :global {
+    .ant-modal-content {
+      padding: 80px 60px;
+    }
+  }
+  .submitBtn {
+    height: 70px;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    background: #60C8B7E5;
+  }
+  .sumBtn {
+    height: 70px;
+    font-size: 24px;
+    font-weight: 400;
+    width: 100%;
+    color: #60C8B7;
+    border-color: #60C8B7;
+  }
+
+  .switchText {
+    font-size: 18px;
+    font-weight: 400;
+    color: #1E3E39;
+  }
+
+  .peopleCount {
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    gap: 11px;
+    color: #1E3E39;
+    align-items: center;
+    :global {
+      .ant-input-number-handler-wrap {
+        display: none;
+      }
+      .ant-input-number {
+        width: 60px;
+      }
+      .ant-input-number-input {
+        opacity: 50%;
+        font-size: 18px;
+        font-weight: 400;
+        color: #1E3E39;
+      }
+    }
+  }
+
+  .cartsMobile {
+    display: none;
+  }
+  .carouselNavigateArrow {
+    font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .bookingModal {
+    :global {
+      .ant-modal-content {
+        padding: 80px 16px;
+      }
+    }
+    .cartsMobile {
+      display: flex;
+    }
+    .cartsBlock {
+      display: none;
+    }
+  }
+}
