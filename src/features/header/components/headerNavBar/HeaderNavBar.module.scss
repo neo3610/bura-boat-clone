@@ -1,0 +1,60 @@
+.navigateText {
+  color: #F8FFFE;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.profileIcon {
+  svg {
+    color: white;
+  }
+}
+.headerLogoName {
+  color: white;
+  span {
+    color: #5fc6b6
+  }
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.headerMobNavBar {
+  display: none;
+  position: relative;
+  .menuUnfold {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+
+.drawer {
+  padding: 20px;
+  .drawerText {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1E3E39;
+  }
+  .bookBtn {
+    font-size: 36px;
+    font-weight: 700;
+    color: #EF8063;
+    bottom: 30px;
+    position: absolute;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .profileIcon {
+    svg {
+      color: #1E3E39;
+    }
+  }
+  .headerNavBar {
+    display: none;
+  }
+  .headerMobNavBar {
+    display: flex;
+  }
+}

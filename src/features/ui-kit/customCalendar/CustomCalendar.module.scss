@@ -1,0 +1,61 @@
+.customCalendar {
+  .headerRender {
+    margin-bottom: 48px;
+  }
+  .monthName {
+    font-size: 21px;
+    font-weight: 600;
+    color: #262626;
+  }
+  .navigateArrow {
+    cursor: pointer;
+    font-size: 21px;
+  }
+
+  :global {
+    .ant-picker-cell {
+      font-size: 20.7px;
+    }
+    .ant-picker-cell-in-view {
+      font-size: 20.7px;
+      font-weight: 400;
+      color: #666666;
+    }
+    .ant-picker-content {
+      tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 27px;
+      }
+      th {
+        font-size: 20.7px;
+        margin-bottom: 27px;
+        font-weight: 500;
+        color: #262626;
+        display: block;
+      }
+    }
+    .ant-picker-panel {
+      border-top: none;
+    }
+    .ant-picker-cell-inner::before {
+      content: none !important;
+    }
+    .ant-picker-cell-selected {
+      .ant-picker-calendar-date-value {
+        color: white;
+      }
+      .ant-picker-cell-inner {
+        border-radius: 50px;
+        display: flex;
+        height: 48px;
+        width: 48px;
+        align-items: center;
+        justify-content: center;
+        background: #60C8B7 !important;
+      }
+    }
+  }
+}
+

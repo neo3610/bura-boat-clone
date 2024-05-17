@@ -1,0 +1,22 @@
+.customDatePicker {
+  :global {
+    .ant-picker {
+      width: 100%;
+      background: none;
+      border: none;
+      padding-left: 0;
+      .ant-picker-input {
+        color: #1E3E39;
+      }
+      input::placeholder {
+        color: #1E3E39;
+      }
+    }
+  }
+}
+
+.customDatePickerLabel {
+  color: #636363;
+  font-size: 14px;
+  font-weight: 400;
+}
