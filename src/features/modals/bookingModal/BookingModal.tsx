@@ -1,8 +1,14 @@
 import React, { useRef } from "react";
 import { Col, Modal, Row } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { geoBookingShowModalSelector } from "@store/selectors";
-import { changeBookingShowModal } from "@store/slices/modals";
+import {
+  getActiveExcursionIdSelector,
+  getBookingShowModalSelector,
+} from "@store/selectors";
+import {
+  changeBookingShowConfirmModal,
+  changeBookingShowModal,
+} from "@store/slices/modals";
 import { DefaultButton } from "@features/ui-kit/defaultButton";
 import styles from "./BookingModal.module.scss";
 import {
@@ -14,14 +20,21 @@ import { CustomCarousel } from "@features/ui-kit";
 import { useIsNarrowScreen } from "@utils/useIsNarrowScreen";
 import { CarouselRef } from "antd/es/carousel";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { useGetMainBoatsListQuery } from "@store/buraboatApi.ts";
+import {
+  useGetCalculationForIdQuery,
+  useGetExcursionsQuery,
+} from "@store/buraboatApi.ts";
+import { skipToken } from "@reduxjs/toolkit/query";
 
 export const BookingModal: React.FC = () => {
   const dispatch = useDispatch();
-  const bookingShowModal = useSelector(geoBookingShowModalSelector);
-  const { narrowScreen: mobile } = useIsNarrowScreen(1024);
+  const activeExcursionId = useSelector(getActiveExcursionIdSelector);
+  const bookingShowModal = useSelector(getBookingShowModalSelector);
   const carouselRef = useRef<CarouselRef>(null);
-  const { data: boatsData = [] } = useGetMainBoatsListQuery();
+
+  const { narrowScreen: mobile } = useIsNarrowScreen(1024);
+
+  const { data: excursionsData = [] } = useGetExcursionsQuery();
 
   const onPrevClick = () => {
     carouselRef.current?.prev();
@@ -33,6 +46,11 @@ export const BookingModal: React.FC = () => {
 
   const onChanel = () => {
     dispatch(changeBookingShowModal(false));
+  };
+
+  const onBooking = () => {
+    dispatch(changeBookingShowModal(false));
+    dispatch(changeBookingShowConfirmModal(true));
   };
 
   return (
@@ -57,9 +75,13 @@ export const BookingModal: React.FC = () => {
                 customRef={carouselRef}
                 compressed
                 navigateArrow={false}
-                data={boatsData.map((item) => (
+                data={excursionsData.map((item) => (
                   <Col key={item.id}>
-                    <BookingModalCart src={item.image} title={item.name} />
+                    <BookingModalCart
+                      id={item.id}
+                      src={item.image_for_tab}
+                      title={item.name}
+                    />
                   </Col>
                 ))}
               />
@@ -74,23 +96,37 @@ export const BookingModal: React.FC = () => {
         </Col>
         <Col className={styles.cartsBlock} span={24}>
           <Row gutter={[20, 18]}>
-            {boatsData.map((item) => (
+            {excursionsData.map((item) => (
               <Col key={item.id} span={6}>
-                <BookingModalCart src={item.image} title={item.name} />
+                <BookingModalCart
+                  id={item.id}
+                  src={item.image_for_tab}
+                  title={item.name}
+                />
               </Col>
             ))}
           </Row>
         </Col>
-        <Col span={24}>{mobile ? <MobileContent /> : <ContentBlock />}</Col>
+        {activeExcursionId ? (
+          <Col span={24}>{mobile ? <MobileContent /> : <ContentBlock />}</Col>
+        ) : (
+          <Col span={24} className={styles.chooseExcursion}>
+            To get started, select a tour!
+          </Col>
+        )}
         <Col span={24}>
           <Row gutter={[20, 20]}>
-            <Col span={mobile ? 24 : 6}>
-              <DefaultButton className={styles.sumBtn}>
-                For 3600 EU
-              </DefaultButton>
-            </Col>
-            <Col span={mobile ? 24 : 18}>
-              <DefaultButton className={styles.submitBtn}>
+            {/*<Col span={mobile ? 24 : 6}>*/}
+            {/*  <DefaultButton className={styles.sumBtn}>*/}
+            {/*    For 3600 EU*/}
+            {/*  </DefaultButton>*/}
+            {/*</Col>*/}
+            <Col span={24}>
+              <DefaultButton
+                disabled={!activeExcursionId}
+                onClick={onBooking}
+                className={styles.submitBtn}
+              >
                 Book now
               </DefaultButton>
             </Col>

@@ -2,10 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type modalsState = {
   bookingShowModal: boolean;
+  activeExcursionId: number;
+  bookingShowConfirmModal: boolean;
 };
 
 const initialState: modalsState = {
   bookingShowModal: false,
+  bookingShowConfirmModal: false,
+  activeExcursionId: 0,
 };
 
 const modalsSlice = createSlice({
@@ -18,8 +22,24 @@ const modalsSlice = createSlice({
         bookingShowModal: action.payload,
       };
     },
+    setActiveExcursion: (state, action: PayloadAction<number>) => {
+      return {
+        ...state,
+        activeExcursionId: action.payload,
+      };
+    },
+    changeBookingShowConfirmModal: (state, action: PayloadAction<boolean>) => {
+      return {
+        ...state,
+        bookingShowConfirmModal: action.payload,
+      };
+    },
   },
 });
 
-export const { changeBookingShowModal } = modalsSlice.actions;
+export const {
+  changeBookingShowModal,
+  changeBookingShowConfirmModal,
+  setActiveExcursion,
+} = modalsSlice.actions;
 export default modalsSlice.reducer;

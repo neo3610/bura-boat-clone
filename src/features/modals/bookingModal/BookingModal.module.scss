@@ -49,12 +49,68 @@
       }
     }
   }
-
+  .chooseExcursion {
+    text-align: center;
+    color: #1E3E39;
+    font-size: 24px;
+    font-weight: 900;
+  }
   .cartsMobile {
     display: none;
   }
   .carouselNavigateArrow {
     font-size: 23px;
+  }
+}
+
+.bookingConfirmModal {
+  .footerLogoName {
+    :global {
+      span {
+        color: #5fc6b6
+      }
+      .ant-typography {
+        color: #1E3E39;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+  .closeOutlined {cursor: pointer}
+  .bookingText {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1E3E39;
+    text-align: center;
+  }
+  .wishes {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1E3E39;
+  }
+  .submitBtn {
+    height: 70px;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    width: 100%;
+    background: #60C8B7E5;
+  }
+  .agreement {
+    :global {
+      .ant-form-item-control-input-content {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+      }
+    }
+    span {
+      font-size: 14px;
+      font-weight: 400;
+      color: #1E3E39;
+      opacity: 85%;
+    }
   }
 }
 

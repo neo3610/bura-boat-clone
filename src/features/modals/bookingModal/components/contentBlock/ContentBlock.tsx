@@ -9,6 +9,10 @@ import {
 import TextArea from "antd/es/input/TextArea";
 import styles from "@features/modals/bookingModal/BookingModal.module.scss";
 import { useIsNarrowScreen } from "@utils/useIsNarrowScreen";
+import { useGetCalculationForIdQuery } from "@store/buraboatApi.ts";
+import { skipToken } from "@reduxjs/toolkit/query";
+import { useSelector } from "react-redux";
+import { getActiveExcursionIdSelector } from "@store/selectors";
 
 const dataSwitch = [
   { name: "Free bar", id: 1 },
@@ -24,6 +28,12 @@ const dataSwitch = [
 ];
 
 export const ContentBlock: React.FC = () => {
+  const activeExcursionId = useSelector(getActiveExcursionIdSelector);
+
+  const { data: calculation = [] } = useGetCalculationForIdQuery(
+    activeExcursionId ? { id: activeExcursionId } : skipToken,
+  );
+  console.log(calculation);
   const { narrowScreen } = useIsNarrowScreen(1250);
 
   return (
